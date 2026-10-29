@@ -12,8 +12,6 @@ Este projeto analisa o comportamento de compra e a retenção de clientes no e-c
 - Classificar a base em 6 personas de negócio para facilitar ações direcionadas de marketing e retenção.
 - Estruturar e disponibilizar views otimizadas no PostgreSQL para servir de base direta para o dashboard no Power BI.
 
----
-
 # Fonte dos Dados
 
 Os dados brutos vêm do dataset público da Olist no Kaggle: https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce
@@ -65,3 +63,15 @@ Para garantir uma conexão limpa e performática com o Power BI sem carregar o r
 
 1. **`vw_churn_rfm_clientes`**: Tabela detalhada em nível de cliente contendo o ID único, dias de recência, total de pedidos, valor monetário, notas individuais de R, F e M e o nome final da persona atribuída.
 2. **`vw_resumo_rfm_personas`**: Tabela agregada com a contagem total de clientes, percentual sobre a base e ticket médio consolidado para cada uma das 6 personas.
+
+## 4. Construção e Formatação do Dashboard 
+
+Na etapa final de visualização, desenvolvi um painel dinâmico e interativo no Power BI conectado às views do PostgreSQL.
+
+**Design Visual e UX/UI:**
+- **Cartões de KPIs Superior:** Indicadores de volume total de clientes, média de inatividade em dias, ticket médio e faturamento total.
+- **Paleta Cromática Semântica:** Definição de cores padronizadas com códigos HEX equivalentes em todos os visuais para identificação imediata das personas:
+  - **Em Risco (Alto Valor):** Tom coral/vermelho em destaque para sinalizar urgência em retenção.
+  - **Atenção / Em Desenvolvimento:** Tom lilás/roxo suave para acompanhamento de grande volume da base.
+  - **Inativos / Perdidos:** Tom cinza-aço em segundo plano neutro.
+- **Análise Temporal e Regional:** Gráfico de linhas dinâmico com ajuste automático de granularidade por período e tabela descritiva com o *Top 5 Cidades em Risco de Churn* acompanhada da média de inatividade.
